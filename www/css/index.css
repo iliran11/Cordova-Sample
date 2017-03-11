@@ -1,0 +1,53 @@
+html,body {
+  height:100%;
+}
+
+#toggle {
+  height: 30%;
+  width: 90%;
+  position: relative;
+  border: 2px solid #546E7A;
+  background-color: #263238;
+  text-align:center;
+  padding:10px;
+}
+
+.box {
+  height: 100%;
+  width: 50%;
+  background-color: red;
+  left: 0px;
+  position: relative;
+  border-radius: 50px;
+  text-align:center;
+  background-color: #37474F;
+}
+p {
+  margin:0;
+}
+.red {
+  border-color: #f44336;
+  border-width: 1px;
+  border-style: solid;
+  color: #f44336
+}
+.green{
+   
+  border-color: #66BB6A;
+  border-width: 1px;
+  border-style: solid;
+  color: #66BB6A
+}
+#camera {
+    text-align:center;
+    margin-top: 20px;
+    width:90%;
+    padding:10px;
+    border: 2px solid #1e2b20;
+    overflow:scroll;
+
+}
+#camera-information {
+    font-size:20px;
+    color:black;
+}
