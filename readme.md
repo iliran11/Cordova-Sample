@@ -1,0 +1,1 @@
+![](http://i.imgur.com/HTNBW5d.png "before taking a picture")
