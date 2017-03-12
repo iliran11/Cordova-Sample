@@ -25,4 +25,5 @@
     </platform>
     <engine name="android" spec="~6.1.2" />
     <plugin name="cordova-plugin-camera" spec="~2.4.0" />
+    <plugin name="cordova-plugin-android-fingerprint-auth" spec="~1.2.7" />
 </widget>

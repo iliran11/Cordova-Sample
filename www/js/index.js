@@ -1,12 +1,17 @@
 document.addEventListener('deviceready', function () {
     swiping();
     $("#camera").click(camera);
+    FingerprintAuth.delete({
+        clientId: "liran",
+        username: 'liranliran',
+    }, successCallback, errorCallback);
+    FingerprintAuth.isAvailable(isAvailableSuccess, isAvailableError);
 
 }, false);
 
 
-function swiping () {
-        var box = {
+function swiping() {
+    var box = {
         horizontal: 'left',
         vertical: 'up',
         el: document.getElementById('box'),
@@ -40,24 +45,56 @@ function swiping () {
 
     });
 }
-function camera () {
+
+function camera() {
     $("#camera-information").hide();
-    pictureWidth =  $("body").width() * 0.9;
-    console.log (pictureWidth);
-    console.log ($("#toggle").width());
+    pictureWidth = $("body").width() * 0.9;
+    console.log(pictureWidth);
+    console.log($("#toggle").width());
     navigator.camera.getPicture(onSuccess, onFail, {
         quality: 50,
         destinationType: Camera.DestinationType.FILE_URI,
 
- });
+    });
 
-function onSuccess(imageURI) {
-    var image = document.getElementById('myImage');
-    console.log (imageURI);
-    image.src = imageURI;
+    function onSuccess(imageURI) {
+        var image = document.getElementById('myImage');
+        console.log(imageURI);
+        image.src = imageURI;
+    }
+
+    function onFail(message) {
+        alert('Failed because: ' + message);
+    }
 }
 
-function onFail(message) {
-    alert('Failed because: ' + message);
+function isAvailableSuccess(result) {
+    console.log("FingerprintAuth available: " + JSON.stringify(result));
+    if (result.isAvailable) {
+        var encryptConfig = {
+            clientId: 'liran',
+            username: 'liranliran',
+        }; // See config object for required parameters
+        FingerprintAuth.encrypt(encryptConfig, encryptSuccessCallback, encryptErrorCallback);
+    }
 }
+
+function isAvailableError(message) {
+    console.log("isAvailableError(): " + message);
+}
+
+function encryptSuccessCallback() {
+    console.log("u are authenticated !!");
+}
+
+function encryptErrorCallback(error) {
+    console.log('error ! ', error);
+}
+
+function successCallback(result) {
+    console.log("Successfully deleted cipher: " + JSON.stringify(result));
+}
+
+function errorCallback(error) {
+    console.log(error);
 }
