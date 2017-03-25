@@ -1,9 +1,3 @@
-# install
+type `cordova prepare` on terminal. then, run emulator from VS Code.
 
-```
-1.cordova prepare
-2. run emulator from VS Code
-```
-
-
-![](http://i.imgur.com/HTNBW5d.png "before taking a picture")
+![](blob:http://imgur.com/29bfa462-c3b4-4ca5-840f-d9f7fa0c2e11)
